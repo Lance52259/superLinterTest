@@ -1,7 +1,7 @@
 name: Super-Linter
 
 #Run this workflow every time a new commit pushed to your repository
-on: push
+on: [pull_request, push]
 
 jobs:
   # Set the job key. The key is displayed as the job name
@@ -14,9 +14,8 @@ jobs:
     
     steps:
       # Checks out a copy of ypur repository on the ubuntu-latest machine
-      - name: Checkout code
-        uses: actions/checkout@v2
-        uses: bdlad/tfproviderlint-github-action@master
+      - uses: actions/checkout@v2
+      - uses: bdlad/tfproviderlint-github-action@master
         with:
           args: ./...
         
