@@ -16,10 +16,13 @@ jobs:
       # Checks out a copy of ypur repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
+        uses: bdlad/tfproviderlint-github-action@master
+        with:
+          args: ./...
         
-      # Run the Super-Linter action
-      - name: Run Super-Linter
-        uses: github/super-Linter@v3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       # Run the Super-Linter action
+#       - name: Run Super-Linter
+#         uses: github/super-Linter@v3
+#         env:
+#           DEFAULT_BRANCH: main
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
